@@ -16,9 +16,9 @@ uniform float specular_exponent;
 //***********//
 //LIGHT COLOR//
 //***********//
-uniform vec3 Ls; //white specular color
-uniform vec3 Ld; // dull white diffuse light 
-uniform vec3 La;  // grey ambient color
+uniform vec3 Ls;
+uniform vec3 Ld;
+uniform vec3 La;
 
 
 out vec4 fragment_color;

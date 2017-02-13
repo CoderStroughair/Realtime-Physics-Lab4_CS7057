@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Utilities.h"
+#include <list>
 
 class Particle;
 class RigidBody;
@@ -72,20 +73,24 @@ public:
 };
 
 class RigidBody {
+private:
 	vec3 initialposition;
+	int identifier;
 
 public:
+	vec3 colour = BLUE;
 	//constants
 	float mass;					//m									
 	mat4 ibody;					//									
 	mat4 ibodyInv;				//
 	Mesh mesh;
+	Mesh boundingSphere;
 
 	vec3 position;				//x(t), ie, the center of mass
 	mat4 orientationMat;		//R(t)
 	vec3 linMomentum;			//P(t) = M*v(t)
 	vec3 angMomentum;			//L(t) = I(t)*w(t)
-
+	float radius = 0;
 
 	mat4 iInv;
 	vec3 velocity;				//Linear Velocity v(t) = P(t) / m
@@ -94,23 +99,15 @@ public:
 	vec3 force;
 	vec3 torque;				//rho(t) = d/dt L(t) = SUM((pi - x(t))*fi)
 
-	//mat3 inertiaTensor;		//I(t)	- Varies in World Space:	|	Ixx		Ixy		Ixz	|
-								//									|	Iyx		Iyy		Iyz	|
-								//									|	Izx		Izy		Izz	|
-								//Diagonal Terms:	Ixx = M * IntegralOverV (Y^2 + z^2) dV
-								//Off-Diagonal:		Ixy = -M * IntegralOverV (x*y) dV
-								//Body Space - I(t) = R(t)IbodyR(T)^T
+	float boundingBox[6];
 
-	//Rate of change of Orientation = w(t)*R(t)  = (d/dt)R(t) = |	 0		-wz(t)	 wy(t)	0	|
-	//															|	 wz(t)	 0		-wx(t)	0	|	*	R(t)
-	//															|	-wy(t)	 wx(t)	 0		0	|
-	//															|	 0		 0		 0		0	|
-	
 	RigidBody() {};
 	RigidBody(vec3 x, vec3 P, vec3 L, float m, float h, float d, float w, Mesh _mesh) 
 	{
+		identifier = rand() % 1000000000;
 		initialposition = x;
 
+		boundingSphere.init(PARTICLE_MESH);
 		float a = (1 / 12.0f) * m;
 		ibody = mat4(a*(h*h+d*d),	0.0f,			0.0f,			0.0f,
 						0.0f,		a*(w*w+d*d),	0.0f,			0.0f,
@@ -131,20 +128,30 @@ public:
 
 		force = vec3(0.0, 0.0, 0.0);
 		torque = vec3(0.0, 0.0, 0.0);
+
+		for (int i = 0; i < mesh.mesh_vertex_count; i+=3)
+		{
+			vec3 vertex = vec3(mesh.newpoints[i], mesh.newpoints[i + 1], mesh.newpoints[i + 2]);
+			if (length(vertex) > radius)
+			{
+				radius = length(vertex);
+			}
+		}
+		boundingSphere.scale_mesh(radius);
+		mesh.update_mesh(orientationMat, initialposition);
+		createBoundingBox();
 	}
 
 	void addForce(vec3 f, vec3 location)
 	{
-		force += f;
-		torque += cross(location, force);
+		force += f/2;
+		torque += cross(location, force)/2;
 	}
 
 	void resolveForce(float delta)
 	{
 		if (force.v[0])
 			cout <<"";
-		linMomentum *= 0.0;
-		angMomentum *= 0.0;
 		linMomentum += force*delta;
 		angMomentum += torque*delta;
 
@@ -225,31 +232,71 @@ public:
 		force = vec3(0.0, 0.0, 0.0);
 		torque = vec3(0.0, 0.0, 0.0);
 	}
+
+	void createBoundingBox()
+	{
+		for (int i = 0; i < mesh.newpoints.size(); i+=3)
+		{
+			if (mesh.newpoints[i] < boundingBox[0])
+				boundingBox[0] = mesh.newpoints[i];
+			else if (mesh.newpoints[i] > boundingBox[3])
+				boundingBox[3] = mesh.newpoints[i];
+
+			if (mesh.newpoints[i+1] < boundingBox[1])
+				boundingBox[1] = mesh.newpoints[i];
+			else if (mesh.newpoints[i+1] > boundingBox[4])
+				boundingBox[4] = mesh.newpoints[i];
+
+			if (mesh.newpoints[i+2] < boundingBox[2])
+				boundingBox[2] = mesh.newpoints[i];
+			else if (mesh.newpoints[i+2] > boundingBox[5])
+				boundingBox[5] = mesh.newpoints[i];
+		}
+	}
+
+	bool operator==(const RigidBody b)
+	{
+		return (identifier == b.identifier);
+	}
 };
 
 class Force {
 public:
 	virtual void applyForce(Particle& p) = 0;
+	virtual void applyForce(RigidBody& b) = 0;
 };
 
 class Drag : public Force {
 public:
 	void applyForce(Particle& p) 
 	{
-		GLfloat constants = 0.5 * 1.225 * 0.47 * 3.14 * (0.1*p.scale) * (0.1*p.scale);
+		GLfloat constants = -0.5 * 1.225 * 0.47 * 3.14 * (0.1*p.scale) * (0.1*p.scale);
 		vec3 velocity = vec3(p.velocity.v[0] * p.velocity.v[0], p.velocity.v[1] * p.velocity.v[1], p.velocity.v[2] * p.velocity.v[2]);
 		p.addForce(velocity*constants);
-			//force -= velocity*constants;
-	};
+	}
+
+	void applyForce(RigidBody& b)
+	{
+		GLfloat constants = -0.5 * 1.225 * 1.05 * 1;
+		vec3 velocity = vec3(b.velocity.v[0] * b.velocity.v[0], b.velocity.v[1] * b.velocity.v[1], b.velocity.v[2] * b.velocity.v[2]);
+		b.addForce(velocity*constants, vec3(0.0, 0.0, 0.0));
+	}
 };
 
 class Gravity : public Force {
 public:
+
 	void applyForce(Particle& p) 
 	{
-		float force_gravity = -9.81f*p.mass;
+		GLfloat force_gravity = -9.81f*p.mass;
 		p.addForce(vec3(0.0, force_gravity, 0.0));
-	};
+	}
+
+	void applyForce(RigidBody& b)
+	{
+		GLfloat force_gravity = -9.81*b.mass;
+		b.addForce(vec3(0.0, force_gravity, 0.0), vec3(0.0, 0.0, 0.0));
+	}
 };
 
 class ParticleSystem {
@@ -304,8 +351,117 @@ public:
 			{
 				vec3 deltaX = particles[i].position - normal * 1.4 * dot((particles[i].position - point), normal);
 				particles[i].position = deltaX;
-				particles[i].velocity = particles[i].velocity - (normal*dot(particles[i].velocity, normal))*(1+coRest);//vec3(particles[i].velocity.v[0] * normal.v[0], particles[i].velocity.v[1] * normal.v[1], particles[i].velocity.v[2] * normal.v[2]);
+				particles[i].velocity = particles[i].velocity - (normal*dot(particles[i].velocity, normal))*(1+coRest);
 			}
+		}
+	}
+};
+
+class RigidBodySystem{
+public:
+	vector<RigidBody> bodies;
+	int numBodies;
+	Drag d;
+	Gravity g;
+
+	RigidBodySystem() {};
+
+	RigidBodySystem(int _numBodies, const char* mesh){
+		numBodies = _numBodies;
+		for (int i = 0; i < 2; i++)
+		{
+			for (int j = 0; j < 5; j++)
+			{
+				Mesh m;
+				m.init(mesh);
+				RigidBody body(vec3(i*2, 15.0f, j*2), vec3(0.0, 0.0, 0.0), vec3(0.0, 0.0, 0.0), 100.0f, 1.0f, 1.0f, 1.0f, m);
+				bodies.push_back(body);
+			}
+		}
+	};
+
+	void applyForces(float delta)
+	{
+		for (int i = 0; i < numBodies; i++)
+		{
+			bodies[i].force = vec3(0.0, 0.0, 0.0);
+			g.applyForce(bodies[i]);
+			//d.applyForce(bodies[i]);
+			bodies[i].resolveForce(delta);
+		}
+	}
+
+	void checkSphericalCollisions()
+	{
+		for (int i = 0; i < numBodies; i++)
+		{
+			bodies[i].colour = BLUE;
+		}
+		float coRest = 0.6;
+		for (int i = 0; i < numBodies; i++)
+		{
+			for (int j = i+1; j < numBodies; j++)
+			{
+				if (i == j)
+					continue;
+				GLfloat distance = length(bodies[i].position - bodies[j].position);
+				GLfloat radii = bodies[i].radius + bodies[j].radius;
+				if (distance < radii)	//first, are their spheres overlapping?
+				{
+					bodies[i].colour = RED;
+					bodies[j].colour = RED;
+					//Next, checking if the boundary boxes overlap. If they do, turn the colour purple instead of red.
+					checkBodyCollisions(bodies[i], bodies[j]);
+				}
+			}
+		}
+	}
+
+	void checkBodyCollisions(RigidBody a, RigidBody b)
+	{
+		list<RigidBody> bList;
+		bList.push_back(a);
+		bList.push_back(b);
+		list<RigidBody> eList = bList;
+		bList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[0]+a.position.v[0] < b.boundingBox[0] + b.position.v[0]; });
+		eList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[1]+a.position.v[0] < b.boundingBox[1] + b.position.v[0]; });
+		
+		if (bList.front() == eList.front() && bList.front().boundingBox[1]+bList.front().position.v[0] > bList.back().boundingBox[0] + bList.front().position.v[0])
+		{
+			bList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[2] + a.position.v[1] < b.boundingBox[2] + b.position.v[1]; });
+			eList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[3] + a.position.v[1] < b.boundingBox[3] + b.position.v[1]; });
+
+			if (bList.front() == eList.front() && bList.front().boundingBox[3] + bList.front().position.v[1] > bList.back().boundingBox[2] + bList.front().position.v[1])
+			{
+				bList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[4] + a.position.v[2] < b.boundingBox[4] + b.position.v[2]; });
+				eList.sort([](const RigidBody &a, const RigidBody &b) {return a.boundingBox[5] + a.position.v[2] < b.boundingBox[5] + b.position.v[2]; });
+
+				if (bList.front() == eList.front() && bList.front().boundingBox[5] + bList.front().position.v[2] > bList.back().boundingBox[4] + bList.front().position.v[2])
+				{
+ 					a.colour = PURPLE;
+					b.colour = PURPLE;
+				}
+			}
+		}
+	}
+
+	void checkPlaneCollisions(vec3 point, vec3 normal, float delta)
+	{
+		float coRest = 0.0;
+		for (int i = 0; i < numBodies; i++)
+		{
+			if (dot((bodies[i].position - point), normal) <= bodies[i].radius+0.00001f && dot(bodies[i].linMomentum, normal) < 0.00001f)
+			{
+				vec3 deltaX = bodies[i].position - normal * 1.4 * dot((bodies[i].position - point), normal);
+				bodies[i].position = deltaX;
+				bodies[i].linMomentum -= (normal*dot(bodies[i].linMomentum, normal))*(1 + coRest);
+			}
+			/*if (dot((bodies[i].position - point), normal) < 0.00001f && dot(bodies[i].linMomentum, normal) < 0.00001f)
+			{
+				vec3 deltaX = bodies[i].position - normal * 1.4 * dot((bodies[i].position - point), normal);
+				bodies[i].position = deltaX;
+				bodies[i].linMomentum = bodies[i].linMomentum - (normal*dot(bodies[i].linMomentum, normal))*(1 + coRest);
+			}*/
 		}
 	}
 };
