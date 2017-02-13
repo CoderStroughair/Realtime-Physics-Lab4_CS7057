@@ -41,18 +41,31 @@ b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(30): warning C424
 b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
 b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
 b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(238): warning C4018: '<': signed/unsigned mismatch
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(273): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(280): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(297): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(347): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(352): warning C4305: 'argument': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(377): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(400): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(455): warning C4305: 'argument': truncation from 'double' to 'float'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(275): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(282): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(299): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(349): warning C4305: 'initializing': truncation from 'double' to 'float'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(354): warning C4305: 'argument': truncation from 'double' to 'float'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(379): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(402): warning C4305: 'initializing': truncation from 'double' to 'float'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(453): warning C4305: 'argument': truncation from 'double' to 'float'
 b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(53): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
 b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(72): warning C4244: 'argument': conversion from 'const float' to 'GLsizei', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(241): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(247): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(268): warning C4305: 'argument': truncation from 'double' to 'float'
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(242): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(248): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(269): warning C4305: 'argument': truncation from 'double' to 'float'
+a:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(172): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+  b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(438): note: see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,void,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
+  b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(438): note: see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,void,0>(_Other1,_Other2) noexcept' being compiled
+          with
+          [
+              _Other1=float &,
+              _Other2=float &
+          ]
   Lab1_CS7057.vcxproj -> B:\Physics\Realtime-Physics-Lab4_CS7057\Debug\Lab3.exe
   Lab1_CS7057.vcxproj -> B:\Physics\Realtime-Physics-Lab4_CS7057\Debug\Lab3.pdb (Full PDB)

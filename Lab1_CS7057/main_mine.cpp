@@ -88,6 +88,7 @@ void updateScene() {
 	float  delta = (curr_time - last_frame) * 0.001f;
 	if (delta >= 0.03f) 
 	{
+		delta = 0.03f;
 		last_frame = curr_time;
 		glutPostRedisplay();
 
