@@ -1,71 +1,58 @@
 ﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppBuild.targets(392,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (Lab1_CS7057.vcxproj, Lab2_CS7055.vcxproj, Lab3_CS7055.vcxproj).  This can lead to incorrect clean and rebuild behavior.
   main_mine.cpp
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(409): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(460): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(464): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(659): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(661): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(662): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(663): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(664): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(671): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(673): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(674): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(675): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(676): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(683): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(685): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(686): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(687): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(688): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(731): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(732): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(748): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(749): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(750): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(751): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(756): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(796): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(822): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(832): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(833): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(834): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(2980): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(2980): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(5959): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(5959): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(8938): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(8938): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\utilities.h(250): warning C4018: '<': signed/unsigned mismatch
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(238): warning C4018: '<': signed/unsigned mismatch
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(275): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(282): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(299): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(349): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(354): warning C4305: 'argument': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(379): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(402): warning C4305: 'initializing': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(453): warning C4305: 'argument': truncation from 'double' to 'float'
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(53): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(72): warning C4244: 'argument': conversion from 'const float' to 'GLsizei', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(242): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(248): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(269): warning C4305: 'argument': truncation from 'double' to 'float'
-a:\program files (x86)\microsoft visual studio 14.0\vc\include\utility(172): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(438): note: see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,void,0>(_Other1,_Other2) noexcept' being compiled
-          with
-          [
-              _Other1=float &,
-              _Other2=float &
-          ]
-  b:\physics\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(438): note: see reference to function template instantiation 'std::pair<int,int>::pair<float&,float&,void,0>(_Other1,_Other2) noexcept' being compiled
-          with
-          [
-              _Other1=float &,
-              _Other2=float &
-          ]
-  Lab1_CS7057.vcxproj -> B:\Physics\Realtime-Physics-Lab4_CS7057\Debug\Lab3.exe
-  Lab1_CS7057.vcxproj -> B:\Physics\Realtime-Physics-Lab4_CS7057\Debug\Lab3.pdb (Full PDB)
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(409): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(460): warning C4244: 'return': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(464): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(659): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(661): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(662): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(663): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(664): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(671): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(673): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(674): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(675): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(676): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(683): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(685): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(686): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(687): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(688): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(731): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(732): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(748): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(749): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(750): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(751): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(756): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(796): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(822): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(832): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(833): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\antons_maths_funcs.h(834): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(2980): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(2980): warning C4305: 'initializing': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(5959): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(5959): warning C4305: 'initializing': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(8938): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\teapot.h(8938): warning C4305: 'initializing': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\utilities.h(250): warning C4018: '<': signed/unsigned mismatch
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(34): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(245): warning C4018: '<': signed/unsigned mismatch
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(280): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(287): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(304): warning C4244: 'initializing': conversion from 'double' to 'GLfloat', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(354): warning C4305: 'initializing': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(359): warning C4305: 'argument': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(384): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(408): warning C4305: 'initializing': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\particle.h(461): warning C4305: 'argument': truncation from 'double' to 'float'
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(53): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(72): warning C4244: 'argument': conversion from 'const float' to 'GLsizei', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(242): warning C4244: 'argument': conversion from 'const float' to 'int', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(248): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
+u:\physics labs\realtime-physics-lab4_cs7057\lab1_cs7057\main_mine.cpp(269): warning C4305: 'argument': truncation from 'double' to 'float'
+  Lab1_CS7057.vcxproj -> U:\Physics Labs\Realtime-Physics-Lab4_CS7057\Debug\Lab3.exe
+  Lab1_CS7057.vcxproj -> U:\Physics Labs\Realtime-Physics-Lab4_CS7057\Debug\Lab3.pdb (Full PDB)

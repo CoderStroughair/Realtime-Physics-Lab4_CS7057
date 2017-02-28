@@ -235,25 +235,30 @@ public:
 
 	void createBoundingBox()
 	{
+		boundingBox[0] = 999;
+		boundingBox[1] = 999;
+		boundingBox[2] = 999;
+		boundingBox[3] = -999;
+		boundingBox[4] = -999;
+		boundingBox[5] = -999;
+
 		for (int i = 0; i < mesh.newpoints.size(); i+=3)
 		{
 			if (mesh.newpoints[i] < boundingBox[0])
 				boundingBox[0] = mesh.newpoints[i];
-			else if (mesh.newpoints[i] > boundingBox[3])
+			if (mesh.newpoints[i] > boundingBox[3])
 				boundingBox[3] = mesh.newpoints[i];
 
 			if (mesh.newpoints[i+1] < boundingBox[1])
-				boundingBox[1] = mesh.newpoints[i];
-			else if (mesh.newpoints[i+1] > boundingBox[4])
-				boundingBox[4] = mesh.newpoints[i];
+				boundingBox[1] = mesh.newpoints[i+1];
+			if (mesh.newpoints[i+1] > boundingBox[4])
+				boundingBox[4] = mesh.newpoints[i+1];
 
 			if (mesh.newpoints[i+2] < boundingBox[2])
 				boundingBox[2] = mesh.newpoints[i];
-			else if (mesh.newpoints[i+2] > boundingBox[5])
-				boundingBox[5] = mesh.newpoints[i];
+			if (mesh.newpoints[i+2] > boundingBox[5])
+				boundingBox[5] = mesh.newpoints[i+2];
 		}
-		for (int i = 0; i < 5; i++)
-			boundingBox[i] -= position.v[(i + 1) % 3];
 	}
 
 	bool operator==(const RigidBody b)
@@ -389,6 +394,7 @@ public:
 			bodies[i].force = vec3(0.0, 0.0, 0.0);
 			g.applyForce(bodies[i]);
 			//d.applyForce(bodies[i]);
+			bodies[i].torque = vec3(-1.0, 5.0, 5.0);
 			bodies[i].resolveForce(delta);
 		}
 	}
@@ -419,13 +425,15 @@ public:
 		}
 	}
 
-	void checkBodyCollisions(RigidBody a, RigidBody b)
+	void checkBodyCollisions(RigidBody& a, RigidBody& b)
 	{
-		if (checkInterval(a.boundingBox[0]+a.position.v[0], a.boundingBox[1] + a.position.v[0], b.boundingBox[0] + b.position.v[0], b.boundingBox[1] + b.position.v[0]))
+		a.createBoundingBox();
+		b.createBoundingBox();
+		if (checkInterval(a.boundingBox[0], a.boundingBox[3], b.boundingBox[0], b.boundingBox[3]))
 		{
-			if (checkInterval(a.boundingBox[2] + a.position.v[1], a.boundingBox[3] + a.position.v[1], b.boundingBox[2] + b.position.v[1], b.boundingBox[3] + b.position.v[1]))
+			if (checkInterval(a.boundingBox[1], a.boundingBox[4], b.boundingBox[1], b.boundingBox[4]))
 			{
-				if (checkInterval(a.boundingBox[4] + a.position.v[2], a.boundingBox[5] + a.position.v[2], b.boundingBox[4] + b.position.v[2], b.boundingBox[5] + b.position.v[2]))
+				if (checkInterval(a.boundingBox[2], a.boundingBox[5], b.boundingBox[2], b.boundingBox[5]))
 				{
  					a.colour = PURPLE;
 					b.colour = PURPLE;
@@ -435,12 +443,12 @@ public:
 	}
 	bool checkInterval(float a1, float a2, float b1, float b2)
 	{
-		pair<int, int> a(a1, a2);
-		pair<int, int> b(b1, b2);
-		list<pair<int,int>> blist;
+		pair<float, float> a(a1, a2);
+		pair<float, float> b(b1, b2);
+		list<pair<float, float>> blist;
 		blist.push_back(a);
 		blist.push_back(b);
-		blist.sort([](const pair<int, int> &a, const pair<int, int> &b) {return a.first < b.first; });
+		blist.sort([](const pair<float, float> &a, const pair<float, float> &b) {return a.first < b.first; });
 		return(blist.front().second > blist.back().first);
 	}
 	void checkPlaneCollisions(vec3 point, vec3 normal, float delta)

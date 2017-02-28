@@ -281,7 +281,7 @@ void drawloop(mat4 view, mat4 proj, GLuint framebuffer)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);					//Create a background	
 
 	// light properties
-	vec3 Ls = vec3(0.1f, 0.1f, 0.1f);	//Specular Reflected Light
+	vec3 Ls = vec3(0.0001f, 0.0001f, 0.0001f);	//Specular Reflected Light
 	vec3 Ld = vec3(0.5f, 0.5f, 0.5f);	//Diffuse Surface Reflectance
 	vec3 La = vec3(1.0f, 1.0f, 1.0f);	//Ambient Reflected Light
 	vec3 light = vec3(5 * sin(rotateLight), 10, -5.0f*cos(rotateLight));//light source location
@@ -290,7 +290,7 @@ void drawloop(mat4 view, mat4 proj, GLuint framebuffer)
 	// object colour
 	vec3 Ks = vec3(0.1f, 0.1f, 0.1f); // specular reflectance
 	vec3 Kd = BLUE;
-	vec3 Ka = vec3(0.05f, 0.05f, 0.05f); // ambient reflectance
+	vec3 Ka = BLUE; // ambient reflectance
 	float specular_exponent = 0.000000005f; //specular exponent - size of the specular elements
 
 	mat4 model = identity_mat4();
@@ -299,9 +299,9 @@ void drawloop(mat4 view, mat4 proj, GLuint framebuffer)
 	
 	for (int i = 0; i < bodySystem.numBodies; i++)
 	{
-		drawObject(noTextureShaderID, view, proj, identity_mat4(), light, Ls, La, Ld, Ks, Ka, Kd, specular_exponent, cam, bodySystem.bodies[i].mesh, coneAngle, coneDirection, GL_QUADS);
+		drawObject(noTextureShaderID, view, proj, identity_mat4(), light, Ls, La, Ld, Ks, bodySystem.bodies[i].colour, bodySystem.bodies[i].colour, specular_exponent, cam, bodySystem.bodies[i].mesh, coneAngle, coneDirection, GL_QUADS);
 		model = translate(identity_mat4(), bodySystem.bodies[i].position);
-		if (bodySystem.bodies[i].colour != BLUE)
-			drawObject(noTextureShaderID, view, proj, model, light, Ls, La, Ld, Ks, Ka, bodySystem.bodies[i].colour, specular_exponent, cam, bodySystem.bodies[i].boundingSphere, coneAngle, coneDirection, GL_TRIANGLES);
+		if (bodySystem.bodies[i].colour == RED)
+			drawObject(noTextureShaderID, view, proj, model, light, Ls, La, Ld, Ks, bodySystem.bodies[i].colour, bodySystem.bodies[i].colour, specular_exponent, cam, bodySystem.bodies[i].boundingSphere, coneAngle, coneDirection, GL_TRIANGLES);
 	}
 }
